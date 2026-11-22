@@ -228,3 +228,11 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
 .faq details[open ] summary::after{transform:rotate(45deg)}
 .foot-mark{font-family:var(--serif);font-weight:700;font-size:clamp(58px,11.5vw,148px);line-height:.95;letter-spacing:.06em;color:transparent;-webkit-text-stroke:1px #33352b;text-align:center;padding:34px 0 2px;user-select:none}
 @media (max-width:700px){.dials{gap:10px}.dial{max-width:160px}.tier i{width:88%}}
+
+/* ================= v3.1 polish ================= */
+.spec-chips{display:grid;grid-template-columns:repeat(2,max-content);gap:10px}
+.spec-chips span{text-align:center}
+@media (max-width:480px){.spec-chips{grid-template-columns:1fr 1fr}.spec-chips span{white-space:nowrap;overflow:hidden}}
+.plate{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.plate span{text-align:center}
+.bb-track i{width:26%;animation:bbsweep 9s linear infinite}
