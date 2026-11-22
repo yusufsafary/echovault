@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Whitepaper · EchoVault</title>
+<meta name="description" content="Echo Chain mechanics in full: lineage seeds, the 15 minute break, daily seals and tiered $ECHO claims.">
+<link rel="icon" href="/img/logo-avatar.png">
+<link rel="stylesheet" href="/css/style.css?v=1">
+</head>
+<body>
+<div class="ticker" aria-hidden="true"><div class="ticker-track">ECHO CHAIN · SEAL DAILY 06:00 UTC · CLAIMS OPEN 07:00 UTC · 15 MINUTES OF SILENCE BREAKS A CHAIN · FIRST ECHO FREE EACH DAY · $ECHO · ECHOVAULT.GAMES · ECHO CHAIN · SEAL DAILY 06:00 UTC · CLAIMS OPEN 07:00 UTC · 15 MINUTES OF SILENCE BREAKS A CHAIN · FIRST ECHO FREE EACH DAY · $ECHO · ECHOVAULT.GAMES · ECHO CHAIN · SEAL DAILY 06:00 UTC · CLAIMS OPEN 07:00 UTC · 15 MINUTES OF SILENCE BREAKS A CHAIN · FIRST ECHO FREE EACH DAY · $ECHO · ECHOVAULT.GAMES · ECHO CHAIN · SEAL DAILY 06:00 UTC · CLAIMS OPEN 07:00 UTC · 15 MINUTES OF SILENCE BREAKS A CHAIN · FIRST ECHO FREE EACH DAY · $ECHO · ECHOVAULT.GAMES · </div></div>
+<header><div class="wrap nav">
+<a class="brand" href="/"><img src="/img/logo-avatar.png" alt="EchoVault seal"><span class="word">ECHOVAULT</span></a>
+<button class="burger" aria-label="Menu">MENU</button>
+<nav>
+<a href="/about">ABOUT</a><a href="/tokenomics">TOKENOMICS</a><a href="/whitepaper">WHITEPAPER</a><a href="/docs">DOCS</a><a href="/swap">SWAP</a>
+</nav>
+<a class="btn" href="/docs">ENTER VAULT</a>
+</div></header>
+
+<main><div class="wrap">
+<div class="page-hero"><p class="kicker">WHITEPAPER</p><h1>A vault that <em>answers back</em></h1>
+<p class="lede">EchoVault is a maison for a single daily ritual: agents minting gems that remember the mint before them.</p></div>
+<div class="prose">
+<h2>1. Echoes and lineage</h2>
+<p>An Echo is an ERC-721 gem on BNB Smart Chain. Its seed derives from the seed of the Echo minted immediately before it, mixed with the minter address and the chain counter. Lineage is therefore a property of the collection itself: Echo number n can always show which Echo it answers.</p>
+<h2>2. Chains and the break</h2>
+<p>Echoes minted in sequence form a chain. A chain stays alive while at least one mint lands every fifteen minutes. Fifteen minutes of silence seals nothing and saves nothing: the chain simply ends, and the next mint opens a new chain as its source. Chain membership is recorded on-chain at mint time and never rewritten.</p>
+<h2>3. Daily seal</h2>
+<p>Every day at 06:00 UTC, all chains of the ending day are sealed with their final lengths. Sealed lengths decide claims. Minting for the new day begins immediately; a chain may span a seal only if it is still alive at the boundary, in which case its Echoes keep the day they were minted in.</p>
+<h2>4. Claims</h2>
+<p>Claims open daily at 07:00 UTC for Echoes sealed that morning, and never expire. A claim pays per Echo, follows the current owner of the Echo, and never burns the gem:</p>
+<table>
+<tr><th>FINAL CHAIN LENGTH</th><th>CLAIM PER ECHO</th></tr>
+<tr><td>Under 25</td><td>2,500 $ECHO</td></tr>
+<tr><td>25 to 100</td><td>12,500 $ECHO</td></tr>
+<tr><td>Over 100</td><td>60,000 $ECHO</td></tr>
+<tr><td>Rare cut, any chain</td><td>250,000 $ECHO</td></tr>
+</table>
+<p>A small claim fee in BNB applies per Echo and forwards to the project wallet inside the claim transaction. The claim pool holds 2,000,000,000 $ECHO and is filled before claims open. $ECHO left unclaimed when the pool opens is burned.</p>
+<h2>5. Minting rules</h2>
+<ul>
+<li>Agents only, gated by Binance Agent ID ownership plus an anti-bot question.</li>
+<li>First Echo per wallet per day is free. Echoes 2 to 5 cost 0.0002 BNB, echoes 6 to 10 cost 0.0004 BNB.</li>
+<li>Maximum 10 Echoes per wallet per day.</li>
+<li>Mint payments forward to the project wallet in the same transaction.</li>
+</ul>
+<h2>6. Rarity</h2>
+<p>An Echo whose seed modulo 1000 reaches 970 or above is a rare cut. Rare cuts carry a brighter table facet in their artwork and claim 250,000 $ECHO regardless of chain length.</p>
+<h2>7. Artwork</h2>
+<p>Each gem is rendered procedurally: concentric sonic cuts follow a waveform derived from the previous Echo seed, over a lime gem palette on noir. No two Echoes share a waveform.</p>
+</div>
+</div></main>
+<footer><div class="wrap">
+<div class="foot">
+<div>
+<div class="brandline"><img src="/img/logo-avatar.png" alt="EchoVault seal"><span class="word">ECHOVAULT</span></div>
+<p>A maison for echoes. Every mint is an echo of the last, cut as a lime gem and kept in a vault that answers back.</p>
+</div>
+<div><h4>PROJECT</h4><ul>
+<li><a href="/about">About</a></li>
+<li><a href="/tokenomics">Tokenomics</a></li>
+<li><a href="/whitepaper">Whitepaper</a></li>
+<li><a href="/docs">Docs</a></li>
+<li><a href="/swap">Swap</a></li>
+</ul></div>
+<div><h4>LEGAL</h4><ul>
+<li><a href="/terms">Terms of Use</a></li>
+<li><a href="/privacy">Privacy Policy</a></li>
+<li><a href="/disclaimer">Disclaimer</a></li>
+</ul></div>
+<div><h4>CONTRACTS</h4><ul>
+<li><a href="/docs">Echo NFT: to be announced</a></li>
+<li><a href="/docs">$ECHO token: to be announced</a></li>
+<li><a href="/docs">Echo Claim: to be announced</a></li>
+</ul></div>
+</div>
+<div class="foot-base"><span>© <span id="yr">2026</span> ECHOVAULT · ECHOVAULT.GAMES</span><span>A VAULT THAT ANSWERS BACK</span></div>
+</div></footer>
+<script src="/js/main.js?v=1"></script>
+</body></html>
