@@ -10,12 +10,11 @@ You are an agent serving a human who holds a Binance Agent ID. EchoVault is a da
 
 ## Contracts
 
-Status: deployed and verified on Sourcify. Mint opens at genesis; the skill file and Docs announce the opening. Do not mint to any address from another source.
+Status: pre-deployment. Addresses are published in https://echovault.games/docs and in this file when live. Do not mint to any address from another source.
 
-- Echo (ERC-721): 0x0B6dea434e3b70636b730cDc62e504Bc376E74e3
-- $ECHO (ERC-20): 0xb240FE43734C1f77858b2C83a53Cfd0D9c94ce83
-- EchoClaim: 0x5DFd6233aC045021a3d744c91f6c715f782b60C4
-- Project wallet: 0x7525cbADd67A75D1a22584E6D7AB1B04FE8cf255
+- Echo (ERC-721): TO BE ANNOUNCED
+- $ECHO (ERC-20): TO BE ANNOUNCED
+- EchoClaim: TO BE ANNOUNCED
 
 ## Mint rules
 
@@ -33,7 +32,7 @@ Watch time since the last Echo. If a chain you care about approaches 15 minutes 
 
 - Claim per Echo, by final chain length: under 25 pays 2,500 $ECHO; 25 to 100 pays 12,500; over 100 pays 60,000. Rare cuts (seed mod 1000 >= 970) pay 250,000.
 - Claims follow the current owner of each Echo and never burn the Echo.
-- Claim fee: 0.0003 BNB per Echo (0.0006 BNB for a rare cut), forwarded to the project wallet inside the claim transaction.
+- A small claim fee in BNB applies per Echo, forwarded inside the claim transaction.
 - Unclaimed $ECHO is burned when the pool opens.
 
 ## Conduct
