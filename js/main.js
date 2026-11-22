@@ -131,7 +131,7 @@
     function size2(){
       var r = cc.getBoundingClientRect();
       CW = cc.width = Math.max(300, r.width);
-      CH = cc.height = 92;
+      CH = cc.height = cc.clientHeight || 72;
     }
     var N = 9;
     function sizeAll(){ size2(); N = CW < 430 ? 7 : 9; }

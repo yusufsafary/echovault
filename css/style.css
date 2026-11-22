@@ -383,3 +383,58 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
 @media (min-width:701px){
   .poolbar .pb-txt{display:contents}
 }
+
+/* ================= v9 · editorial maison ================= */
+/* Semua panel kartu dibuka: ledger hairline, udara lega, satu bahasa visual */
+.launch,.board,.console{background:transparent;border:none;border-radius:0;box-shadow:none;padding:26px 0 4px;border-top:1px solid var(--line)}
+.launch::after,.board::after{display:none}
+.launch{margin-top:44px}
+.launch-head{padding-bottom:14px}
+.launch-grid{gap:0;margin-top:2px}
+.launch-grid>div{padding:14px 18px 14px 0}
+.launch-grid>div+div{border-left:1px solid var(--line);padding-left:18px}
+.launch .lv{font-size:clamp(24px,3vw,34px)}
+.board{margin-top:40px}
+.board .stats{margin-top:20px}
+.board .stat+.stat{border-left:1px solid var(--line);padding-left:18px}
+.board-times{border-top:none;padding-top:4px}
+.chain-viz{border-top:none}
+.step{background:transparent;border:none;border-top:1px solid var(--line);border-radius:0;padding:20px 0 18px;box-shadow:none}
+.step::before{display:none}
+.steps{gap:0 28px}
+.step .ic{display:none}
+.step .n{font-size:26px}
+.gem-frame{border:1px solid var(--line);padding:0}
+.gem-frame::before{display:none}
+.plate{border:none;border-top:1px solid var(--line);margin-top:14px;padding-top:12px;gap:8px 18px}
+.plate span{border:none;padding:0;text-align:left}
+.manifesto::before{display:none}
+.manifesto{padding:14px 0}
+.mf-quote{font-size:clamp(30px,4.6vw,46px)}
+.console .dials{gap:0}
+.dial{border:none;border-radius:0;background:transparent;padding:6px 0}
+.dial+.dial{border-left:1px solid var(--line);padding-left:20px}
+.dial .when{font-size:clamp(30px,3.6vw,42px)}
+.tiers{border-top:1px solid var(--line);padding-top:16px}
+.status-chip{border-radius:999px}
+.sec-head{margin-bottom:20px}
+h2{font-size:clamp(30px,4.6vw,46px)}
+@media (max-width:700px){
+  .launch,.board,.console{padding:20px 0 2px}
+  .launch-grid>div{padding:10px 12px 10px 0}
+  .launch-grid>div:nth-child(odd){border-left:none;padding-left:0}
+  .launch-grid>div:nth-child(even){border-left:1px solid var(--line);padding-left:12px}
+  .board .stat+.stat{padding-left:12px}
+  .step{padding:16px 0 14px}
+  .dial+.dial{padding-left:14px}
+  section{padding:46px 0 4px}
+}
+
+/* v9.1 · sel pelat transparan + baris jam papan muat satu baris */
+.plate span{background:transparent}
+@media (max-width:700px){ .board-times{font-size:10px;letter-spacing:.08em} }
+
+/* v9.2 · tinggi viz rantai seragam 72px di semua lebar */
+.chain-stack{height:72px}
+#chainCanvas{height:72px}
+.chain-fallback{height:72px}
