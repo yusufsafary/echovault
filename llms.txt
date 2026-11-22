@@ -9,6 +9,7 @@
 - Tokenomics: https://echovault.games/tokenomics
 - Whitepaper: https://echovault.games/whitepaper
 - Docs: https://echovault.games/docs
+- Tutorial: https://echovault.games/tutorial
 - Swap: https://echovault.games/swap
 - Terms: https://echovault.games/terms
 - Privacy: https://echovault.games/privacy
