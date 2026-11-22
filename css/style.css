@@ -347,3 +347,39 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
 @font-face{font-family:"Plex Mono";src:url(/fonts/PlexMono-SemiBold.ttf) format("truetype");font-weight:600 700;font-display:swap}
 .board .stat:last-child{grid-column:auto}
 .price-row .b{font-family:"Plex Mono",monospace}
+
+/* ================= v8 · kerapian total beranda ================= */
+/* Bar jadwal: satu baris ramping */
+.schedbar .sb-in{flex-wrap:nowrap;gap:8px;justify-content:center}
+.schedbar .sb-i{white-space:nowrap}
+/* Band pool: satu baris, teks menumpuk rapi di kiri, pil tanggal di kanan */
+.poolbar .pb-in{flex-wrap:nowrap;justify-content:space-between;gap:10px;padding-top:8px;padding-bottom:8px}
+.poolbar .pb-a{font-size:13px}
+.poolbar .pb-b{font-size:10px}
+.poolbar .pb-date{margin-left:0}
+@media (max-width:700px){
+  .schedbar{font-size:9.5px;letter-spacing:.08em}
+  .poolbar .pb-chip{width:34px;height:34px}
+  .poolbar .pb-chip img{width:20px;height:22px}
+  .poolbar .pb-txt{display:flex;flex-direction:column;align-items:flex-start;gap:1px;margin-right:auto}
+  .poolbar .pb-date{font-size:10px;padding:6px 9px}
+  section{padding:38px 0 4px}
+  .salon-frame{aspect-ratio:4/3}
+  .launch{padding:16px}
+  .launch-grid{gap:0}
+  .launch-grid .cell{padding:10px 12px}
+  .board{padding:16px 14px 12px}
+  .steps{gap:10px}
+  .step{padding:14px 14px 12px}
+  .spec-grid{gap:0}
+  .spec-grid .cell{padding:9px 11px}
+  .console{padding:16px 14px}
+  .price-row{padding:8px 0}
+  .facts{gap:0}
+  .fact{padding:12px 12px}
+  .faq details{padding:12px 2px}
+  .sec-head{margin-bottom:16px}
+}
+@media (min-width:701px){
+  .poolbar .pb-txt{display:contents}
+}
