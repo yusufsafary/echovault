@@ -26,6 +26,7 @@
     return p(d.getUTCHours()) + ":" + p(d.getUTCMinutes()) + " UTC";
   }
   var sealEl = document.getElementById("sealCount");
+  var boardSeal = document.getElementById("boardSeal");
   var claimEl = document.getElementById("claimCount");
   var sealWhen = document.getElementById("sealWhen");
   var claimWhen = document.getElementById("claimWhen");
@@ -33,6 +34,7 @@
     var now = new Date();
     var seal = nextAt(6), claim = nextAt(7);
     if (sealEl) sealEl.textContent = fmtDur(seal - now);
+    if (boardSeal) boardSeal.textContent = fmtDur(seal - now);
     if (claimEl) claimEl.textContent = fmtDur(claim - now);
     if (sealWhen) sealWhen.textContent = fmtClock(seal);
     if (claimWhen) claimWhen.textContent = fmtClock(claim);
