@@ -283,3 +283,37 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
   .launch{padding:18px 16px;margin-top:28px}
   .launch-grid{grid-template-columns:1fr 1fr;gap:14px}
 }
+
+/* ================= v6 · pool band + maison detailing ================= */
+.poolbar{display:block;background:#070806;border-bottom:1px solid var(--brass-dim);text-decoration:none}
+.pb-in{max-width:var(--max);margin:0 auto;padding:9px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.pb-chip{display:inline-flex;background:var(--bone);border-radius:9px;padding:4px 7px;line-height:0}
+.pb-chip img{height:24px;width:auto}
+.pb-a{color:var(--bone);font-weight:700;font-size:12.5px;letter-spacing:.22em}
+.pb-b{color:var(--muted);font-size:12.5px;letter-spacing:.22em}
+.pb-date{margin-left:auto;color:#FF007A;font-weight:700;font-size:12.5px;letter-spacing:.22em;border:1px solid rgba(255,0,122,.45);border-radius:999px;padding:4px 12px}
+.salon-frame{position:relative}
+.salon-tag{position:absolute;top:14px;left:14px;z-index:3;background:rgba(7,8,6,.82);border:1px solid var(--brass-dim);color:var(--bone);font-size:10.5px;font-weight:700;letter-spacing:.22em;padding:6px 11px;border-radius:6px}
+.launch,.board{position:relative}
+.launch::after,.board::after{content:"";position:absolute;inset:9px;pointer-events:none;background:linear-gradient(var(--brass),var(--brass)) left top/16px 2px,linear-gradient(var(--brass),var(--brass)) left top/2px 16px,linear-gradient(var(--brass),var(--brass)) right top/16px 2px,linear-gradient(var(--brass),var(--brass)) right top/2px 16px,linear-gradient(var(--brass),var(--brass)) left bottom/16px 2px,linear-gradient(var(--brass),var(--brass)) left bottom/2px 16px,linear-gradient(var(--brass),var(--brass)) right bottom/16px 2px,linear-gradient(var(--brass),var(--brass)) right bottom/2px 16px;background-repeat:no-repeat;opacity:.75}
+.steps{position:relative}
+.step{position:relative}
+.step::before{content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:11px;height:11px;border-radius:50%;background:var(--noir);border:2px solid var(--lime);z-index:2}
+.gem-frame{position:relative}
+.gem-frame::before{content:"";position:absolute;top:0;left:0;right:0;height:12px;z-index:3;background:repeating-linear-gradient(90deg,var(--brass-dim) 0 1px,transparent 1px 26px);opacity:.8;pointer-events:none}
+.manifesto{position:relative}
+.manifesto::before{content:"\201C";position:absolute;top:-58px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:170px;line-height:1;color:var(--lime);opacity:.16;pointer-events:none}
+.console{position:relative}
+.stamp{position:absolute;top:16px;right:16px;transform:rotate(6deg);border:1.5px solid var(--brass);color:var(--brass);font-size:10px;font-weight:700;letter-spacing:.26em;padding:5px 10px;border-radius:4px;opacity:.85;pointer-events:none}
+.faq details[open ] summary::after{content:"\2013"}
+@media (max-width:700px){
+  .pb-in{justify-content:center;text-align:center;gap:9px;padding:10px 14px}
+  .pb-date{margin-left:0}
+  .pb-b{display:none}
+  .salon-tag{top:10px;left:10px;font-size:9.5px}
+  .stamp{top:12px;right:12px;font-size:9px}
+}
+
+/* v6.1 · node rantai tegas + venue terbaca di HP */
+.step::before{background:var(--lime);border:2px solid var(--noir);box-shadow:0 0 0 2px var(--lime)}
+@media (max-width:700px){ .pb-b{display:inline} }
