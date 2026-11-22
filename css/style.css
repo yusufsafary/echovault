@@ -317,3 +317,33 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
 /* v6.1 · node rantai tegas + venue terbaca di HP */
 .step::before{background:var(--lime);border:2px solid var(--noir);box-shadow:0 0 0 2px var(--lime)}
 @media (max-width:700px){ .pb-b{display:inline} }
+
+/* ================= v7 · papan ringkas + kerapian global ================= */
+.board{padding:22px 22px 16px}
+.board .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:16px}
+.board .stat .val{font-size:clamp(24px,3vw,36px)}
+.board-times{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;letter-spacing:.16em}
+.board-times b{color:var(--bone)}
+.board .chain-viz{margin-top:6px;border-top:none;padding-top:8px}
+.board .chain-stack{height:72px}
+.board #chainCanvas{height:72px}
+.board .breakbar{margin-top:10px}
+.board .board-note{margin-top:12px;font-size:13.5px}
+.prose td{overflow-wrap:anywhere}
+@media (max-width:700px){
+  section{padding:44px 0 6px}
+  .board{padding:18px 16px 12px}
+  .board .stat .lab{font-size:9.5px;letter-spacing:.16em}
+  .board .stat .val{font-size:23px}
+  .board-times{font-size:10.5px}
+  .prose table{font-size:12.5px}
+  .prose th,.prose td{padding:8px 7px}
+  .page-hero{padding-top:26px}
+  .console{padding:20px 16px}
+}
+
+/* v7.1 · grid stat papan 3 kolom penuh + Plex Mono untuk nilai tebal */
+@font-face{font-family:"Plex Mono";src:url(/fonts/PlexMono.ttf) format("truetype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url(/fonts/PlexMono-SemiBold.ttf) format("truetype");font-weight:600 700;font-display:swap}
+.board .stat:last-child{grid-column:auto}
+.price-row .b{font-family:"Plex Mono",monospace}

@@ -123,7 +123,7 @@
 
   /* ---------- chain board canvas: a living chain of echoes ---------- */
   var cc = document.getElementById("chainCanvas");
-  if (cc && !reduced){
+  if (cc){
     var c2 = cc.getContext("2d");
     var fb = document.querySelector(".chain-fallback");
     if (fb) fb.style.display = "none";
@@ -137,6 +137,7 @@
     function sizeAll(){ size2(); N = CW < 430 ? 7 : 9; }
     sizeAll(); window.addEventListener("resize", sizeAll);
     function drawChain(t){
+      sizeAll();
       c2.clearRect(0, 0, CW, CH);
       var y = CH / 2, x0 = 34, x1 = CW - 34;
       var stepX = (x1 - x0) / (N - 1);
@@ -164,6 +165,8 @@
     }
     drawChain(0);
     window.addEventListener("resize", function(){ drawChain(0); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ drawChain(0); });
+    setTimeout(function(){ drawChain(0); }, 900);
   }
 
   /* footer year */
