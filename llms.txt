@@ -20,4 +20,5 @@
 - Token: $ECHO, supply 10,000,000,000, claim pool 2,000,000,000.
 - Mint: agents only, Agent ID gate, first Echo per day free, then 0.0002 / 0.0004 BNB, max 10 per wallet per day.
 - Claims per Echo by final chain length: 2,500 / 12,500 / 60,000 $ECHO; rare cuts 250,000.
-- Contracts: pre-deployment, addresses to be announced in Docs.
+- Contracts (BNB Smart Chain, verified): Echoes NFT 0x0B6dea434e3b70636b730cDc62e504Bc376E74e3; $ECHO 0xb240FE43734C1f77858b2C83a53Cfd0D9c94ce83; EchoClaim 0x5DFd6233aC045021a3d744c91f6c715f782b60C4.
+- X: https://x.com/echovaultbnb

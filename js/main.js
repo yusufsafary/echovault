@@ -170,3 +170,47 @@
   var yr = document.getElementById("yr");
   if (yr) yr.textContent = new Date().getUTCFullYear();
 })();
+
+/* ---- Live Chain Board: bacaan on-chain langsung (balapan 5 RPC, timeout 6 dtk) ---- */
+(function(){
+  var stChain = document.getElementById("stChainV");
+  if (!stChain) return;
+  var stLen = document.getElementById("stLenV"), stBreak = document.getElementById("stBreakV"),
+      bbVal = document.getElementById("bbVal"), liveState = document.getElementById("liveState");
+  var NFT = "0x0B6dea434e3b70636b730cDc62e504Bc376E74e3";
+  var RPCS = ["https://bsc-dataseed.binance.org", "https://bsc-dataseed1.defibit.io", "https://bsc.publicnode.com", "https://bsc-dataseed.bnbchain.org", "https://bsc-dataseed1.ninicoin.io"];
+  var SEL = { genesis: "0x14349d0c", day: "0x5c9302c9", total: "0xd508e53f", chain: "0x3da998fa", toBreak: "0x7363993d" };
+  function encUint(n){ return n.toString(16).padStart(64, "0"); }
+  function callReq(id, data){ return { jsonrpc: "2.0", id: id, method: "eth_call", params: [{ to: NFT, data: data }, "latest"] }; }
+  function race(body){
+    var ctrl = new AbortController(); var to = setTimeout(function(){ ctrl.abort(); }, 6000);
+    var tries = RPCS.map(function(url){
+      return fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal: ctrl.signal })
+        .then(function(r){ return r.json(); })
+        .then(function(j){ if (!j || j.error || !j.result && !Array.isArray(j)) throw new Error("bad"); return j; });
+    });
+    return Promise.any(tries).finally(function(){ clearTimeout(to); });
+  }
+  function u256(hex){ return parseInt(hex, 16); }
+  var breakLeft = null;
+  function fmtMS(s){ var m = Math.floor(s / 60), r = s % 60; return (m < 10 ? "0" : "") + m + ":" + (r < 10 ? "0" : "") + r; }
+  function refresh(){
+    race([callReq(1, SEL.genesis), callReq(2, SEL.day), callReq(3, SEL.total), callReq(4, SEL.chain), callReq(5, SEL.toBreak)])
+    .then(function(rows){
+      var byId = {}; rows.forEach(function(r){ byId[r.id] = r.result; });
+      var genesis = u256(byId[1]) === 1, day = u256(byId[2]), total = u256(byId[3]), chain = u256(byId[4]), toBreak = u256(byId[5]);
+      return race([callReq(6, "0x1b4a0291" + encUint(chain)), callReq(7, "0x4bec7310" + encUint(day))])
+        .then(function(rows2){
+          var byId2 = {}; rows2.forEach(function(r){ byId2[r.id] = r.result; });
+          var chainLen = u256(byId2[6]);
+          if (liveState) liveState.textContent = genesis ? "LIVE" : "OPENS SOON";
+          stChain.textContent = chain;
+          if (stLen) stLen.textContent = chainLen;
+          if (toBreak > 0 && chainLen > 0){ breakLeft = toBreak; if (bbVal) bbVal.textContent = fmtMS(toBreak); if (stBreak) stBreak.innerHTML = fmtMS(toBreak) + " <small>LEFT</small>"; }
+          else { breakLeft = null; if (bbVal) bbVal.textContent = "15:00"; if (stBreak) stBreak.innerHTML = "15 <small>MIN</small>"; }
+        });
+    }).catch(function(){ /* semua RPC gagal: biarkan nilai statis */ });
+  }
+  refresh(); setInterval(refresh, 30000);
+  setInterval(function(){ if (breakLeft !== null && breakLeft > 0){ breakLeft--; if (bbVal) bbVal.textContent = fmtMS(breakLeft); if (stBreak) stBreak.innerHTML = fmtMS(breakLeft) + " <small>LEFT</small>"; if (breakLeft === 0) refresh(); } }, 1000);
+})();

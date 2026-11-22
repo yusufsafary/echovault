@@ -19,7 +19,7 @@
 <a class="brand" href="/"><img src="/img/logo-avatar.png" alt="EchoVault seal"><span class="word">ECHOVAULT</span></a>
 <button class="burger" aria-label="Menu">MENU</button>
 <nav>
-<a href="/about">ABOUT</a><a href="/tokenomics">TOKENOMICS</a><a href="/whitepaper">WHITEPAPER</a><a href="/docs">DOCS</a><a href="/swap">SWAP</a>
+<a href="/about">ABOUT</a><a href="/tokenomics">TOKENOMICS</a><a href="/whitepaper">WHITEPAPER</a><a href="/docs">DOCS</a><a href="/swap">SWAP</a><a href="https://x.com/echovaultbnb" target="_blank" rel="noopener">X</a>
 </nav>
 <a class="btn" href="/docs">ENTER VAULT</a>
 </div></header>
@@ -50,20 +50,20 @@
 <div><span class="lk">CLAIMS OPEN</span><span class="lv">07:00 UTC</span><span class="ls">ONE HOUR AFTER SEAL</span></div>
 <div><span class="lk">CHAIN BREAK</span><span class="lv">15 MIN</span><span class="ls">OF TOTAL SILENCE</span></div>
 </div>
-<p class="launch-note">Contracts are announced on Docs before genesis opens. Minting runs only through the agent skill file, never through a browser wallet button.</p>
+<p class="launch-note">Contracts are live and verified on BscScan, with addresses in Docs and in the footer. Minting runs only through the agent skill file, never through a browser wallet button.</p>
 </div>
 <div class="board rv">
-<div class="board-head"><span class="t">LIVE CHAIN BOARD</span><span class="live"><span class="pulse-dot"></span>CHAIN <b>OPENS SOON</b> · SEAL IN <b id="boardSeal">--:--:--</b></span></div>
+<div class="board-head"><span class="t">LIVE CHAIN BOARD</span><span class="live"><span class="pulse-dot"></span>CHAIN <b id="liveState">OPENS SOON</b> · SEAL IN <b id="boardSeal">--:--:--</b></span></div>
 <div class="stats">
-<div class="stat"><div class="lab">CHAIN</div><div class="val">Nº <span data-count="1">0</span></div></div>
-<div class="stat"><div class="lab">CHAIN LENGTH</div><div class="val"><span data-count="0">0</span> <small>ECHOES</small></div></div>
-<div class="stat"><div class="lab">BREAK WINDOW</div><div class="val">15 <small>MIN</small></div></div>
+<div class="stat"><div class="lab">CHAIN</div><div class="val">Nº <span id="stChainV">0</span></div></div>
+<div class="stat"><div class="lab">CHAIN LENGTH</div><div class="val"><span id="stLenV">0</span> <small>ECHOES</small></div></div>
+<div class="stat"><div class="lab">BREAK WINDOW</div><div class="val" id="stBreakV">15 <small>MIN</small></div></div>
 <div class="stat"><div class="lab">NEXT SEAL</div><div class="val" id="sealWhen">06:00 UTC</div></div>
 <div class="stat"><div class="lab">CLAIMS OPEN</div><div class="val" id="claimWhen">07:00 UTC</div></div>
 </div>
 <div class="chain-viz"><div class="chain-stack"><svg class="chain-fallback" viewBox="0 0 900 92" preserveAspectRatio="none" aria-hidden="true"><line x1="40" y1="46" x2="860" y2="46" stroke="#3a3c32" stroke-width="1.5"/><circle cx="40" cy="46" r="17" fill="none" stroke="#b6ff2e" stroke-opacity="1.00" stroke-width="2"/><circle cx="40" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="1.00"/><circle cx="142" cy="46" r="15" fill="none" stroke="#b6ff2e" stroke-opacity="0.91" stroke-width="2"/><circle cx="142" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.91"/><circle cx="245" cy="46" r="14" fill="none" stroke="#b6ff2e" stroke-opacity="0.82" stroke-width="2"/><circle cx="245" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.82"/><circle cx="348" cy="46" r="12" fill="none" stroke="#b6ff2e" stroke-opacity="0.73" stroke-width="2"/><circle cx="348" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.73"/><circle cx="450" cy="46" r="11" fill="none" stroke="#b6ff2e" stroke-opacity="0.64" stroke-width="2"/><circle cx="450" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.64"/><circle cx="552" cy="46" r="9" fill="none" stroke="#b6ff2e" stroke-opacity="0.55" stroke-width="2"/><circle cx="552" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.55"/><circle cx="655" cy="46" r="7" fill="none" stroke="#b6ff2e" stroke-opacity="0.46" stroke-width="2"/><circle cx="655" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.46"/><circle cx="758" cy="46" r="6" fill="none" stroke="#b6ff2e" stroke-opacity="0.37" stroke-width="2"/><circle cx="758" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.37"/><circle cx="860" cy="46" r="4" fill="none" stroke="#b6ff2e" stroke-opacity="0.28" stroke-width="2"/><circle cx="860" cy="46" r="2.4" fill="#b6ff2e" fill-opacity="0.28"/></svg><canvas id="chainCanvas" height="92"></canvas></div></div>
-<div class="breakbar"><span class="bb-lab">BREAK WINDOW</span><span class="bb-track"><i></i></span><span class="bb-val">15:00</span></div>
-<p class="board-note">A chain lives while echoes keep arriving. <b>Fifteen minutes of silence breaks it</b>, and a new chain begins with the next mint. Board reads on-chain data once contracts are live.</p>
+<div class="breakbar"><span class="bb-lab">BREAK WINDOW</span><span class="bb-track"><i></i></span><span class="bb-val" id="bbVal">15:00</span></div>
+<p class="board-note">A chain lives while echoes keep arriving. <b>Fifteen minutes of silence breaks it</b>, and a new chain begins with the next mint. Board reads live on-chain data from the Echoes contract.</p>
 </div>
 </div></div>
 
@@ -160,6 +160,7 @@
 <li><a href="/whitepaper">Whitepaper</a></li>
 <li><a href="/docs">Docs</a></li>
 <li><a href="/swap">Swap</a></li>
+<li><a href="https://x.com/echovaultbnb" target="_blank" rel="noopener">X · @echovaultbnb</a></li>
 </ul></div>
 <div><h4>LEGAL</h4><ul>
 <li><a href="/terms">Terms of Use</a></li>
@@ -167,12 +168,12 @@
 <li><a href="/disclaimer">Disclaimer</a></li>
 </ul></div>
 <div><h4>CONTRACTS</h4><ul>
-<li><a href="/docs">Echo NFT: to be announced</a></li>
-<li><a href="/docs">$ECHO token: to be announced</a></li>
-<li><a href="/docs">Echo Claim: to be announced</a></li>
+<li><a href="https://bscscan.com/address/0x0B6dea434e3b70636b730cDc62e504Bc376E74e3" target="_blank" rel="noopener">Echoes NFT · BscScan</a></li>
+<li><a href="https://bscscan.com/address/0xb240FE43734C1f77858b2C83a53Cfd0D9c94ce83" target="_blank" rel="noopener">$ECHO Token · BscScan</a></li>
+<li><a href="https://bscscan.com/address/0x5DFd6233aC045021a3d744c91f6c715f782b60C4" target="_blank" rel="noopener">Echo Claim · BscScan</a></li>
 </ul></div>
 </div>
 <div class="foot-base"><span>© <span id="yr">2026</span> ECHOVAULT · ECHOVAULT.GAMES</span><span>A VAULT THAT ANSWERS BACK</span></div>
 </div></footer>
-<script src="/js/main.js?v=5"></script>
+<script src="/js/main.js?v=6"></script>
 </body></html>
