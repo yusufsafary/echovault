@@ -236,3 +236,32 @@ footer{margin-top:80px;border-top:1.5px solid var(--brass);background:var(--noir
 .plate{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .plate span{text-align:center}
 .bb-track i{width:26%;animation:bbsweep 9s linear infinite}
+
+/* ================= v4 · mobile-first repair ================= */
+.gem-frame{aspect-ratio:4/5}
+.gem-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.stat .val,.fact .val,.dial .when,.tier .amt,.bb-val{font-variant-numeric:lining-nums}
+.step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px}
+.step-top .n{font-size:26px}
+.step-top .ic{width:28px;height:28px;color:var(--lime)}
+.step-top .ic svg{width:100%;height:100%}
+@media (max-width:700px){
+  .sched-in{flex-wrap:wrap;justify-content:center;row-gap:1px;column-gap:16px;font-size:10.5px;padding:7px 12px;text-align:center;white-space:normal}
+  .price-row{font-size:12px;letter-spacing:.03em}
+  .price-row .dots{margin:0 8px 4px}
+  .mf-att{letter-spacing:.18em;font-size:10px}
+  .foot{grid-template-columns:1fr 1fr;gap:22px;padding:30px 0 22px}
+  .foot>div:first-child{grid-column:1/-1}
+  .foot>div:last-child{grid-column:1/-1}
+  .foot p{max-width:52ch}
+  .foot-base{flex-direction:column;align-items:flex-start;gap:4px}
+  .foot-mark{padding-top:22px}
+  .chain-viz{height:96px}
+}
+
+/* ================= v4.1 · final mobile fixes ================= */
+.foot-mark{font-size:clamp(38px,10.6vw,148px);letter-spacing:.04em;white-space:nowrap}
+.price-row{flex-wrap:nowrap}
+.price-row .a,.price-row .b{white-space:nowrap}
+.tier .rng{letter-spacing:.1em}
+@media (max-width:700px){.price-row{font-size:11.5px}}

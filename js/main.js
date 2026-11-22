@@ -125,14 +125,17 @@
   var cc = document.getElementById("chainCanvas");
   if (cc && !reduced){
     var c2 = cc.getContext("2d");
+    var fb = document.querySelector(".chain-fallback");
+    if (fb) fb.style.display = "none";
     var CW = 0, CH = 0;
     function size2(){
       var r = cc.getBoundingClientRect();
       CW = cc.width = Math.max(300, r.width);
       CH = cc.height = 92;
     }
-    size2(); window.addEventListener("resize", size2);
     var N = 9;
+    function sizeAll(){ size2(); N = CW < 430 ? 7 : 9; }
+    sizeAll(); window.addEventListener("resize", sizeAll);
     function drawChain(t){
       if (document.hidden){ requestAnimationFrame(drawChain); return; }
       c2.clearRect(0, 0, CW, CH);
@@ -148,8 +151,8 @@
       for (var j = 0; j < N; j++){
         var xj = x0 + stepX * j;
         var fade = 1 - j / (N + 2);
-        var pulse = 1 + 0.10 * Math.sin(t / 620 - j * 0.85);
-        var r = (17 - j * 1.15) * pulse;
+        var pulse = 1 + 0.06 * Math.sin(t / 620 - j * 0.85);
+        var r = Math.min(17 - j * 1.15, stepX * 0.44) * pulse;
         c2.beginPath();
         c2.arc(xj, y, Math.max(4, r), 0, Math.PI * 2);
         c2.strokeStyle = "rgba(182,255,46," + (0.25 + 0.75 * fade).toFixed(3) + ")";
