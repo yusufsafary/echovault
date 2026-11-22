@@ -78,9 +78,13 @@
     var ctx = cv.getContext("2d");
     var W = 0, H = 0, rings = [], last = 0;
     function size(){
-      var r = cv.parentElement.getBoundingClientRect();
-      W = cv.width = Math.max(300, r.width);
-      H = cv.height = Math.max(300, r.height);
+      var hero = cv.parentElement;
+      var hr = hero.getBoundingClientRect();
+      var grid = hero.querySelector(".hero-grid");
+      var bottom = grid ? (grid.getBoundingClientRect().bottom - hr.top + 12) : hr.height;
+      W = cv.width = Math.max(300, hr.width);
+      H = cv.height = Math.max(260, bottom);
+      cv.style.height = H + "px";
     }
     size(); window.addEventListener("resize", size);
     function spawn(t){
@@ -88,6 +92,7 @@
       if (rings.length > 14) rings.shift();
     }
     function frame(t){
+      if (document.hidden){ requestAnimationFrame(frame); return; }
       ctx.clearRect(0, 0, W, H);
       var cx = W * 0.76, cy = H * 0.34;
       /* tempo follows the seal clock: calmer far from seal, denser near it */
@@ -127,6 +132,7 @@
     size2(); window.addEventListener("resize", size2);
     var N = 9;
     function drawChain(t){
+      if (document.hidden){ requestAnimationFrame(drawChain); return; }
       c2.clearRect(0, 0, CW, CH);
       var y = CH / 2, x0 = 34, x1 = CW - 34;
       var stepX = (x1 - x0) / (N - 1);
